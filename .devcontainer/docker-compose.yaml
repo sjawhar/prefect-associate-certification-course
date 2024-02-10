@@ -1,0 +1,10 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: pacc:dev
+    tty: true
+    volumes:
+      - ..:/home/prefect/app:cached
+    command: [sleep, infinity]
