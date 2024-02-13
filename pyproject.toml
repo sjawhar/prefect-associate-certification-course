@@ -9,6 +9,7 @@ readme = "README.md"
 python = "~3.11.8"
 
 httpx = "^0.26.0"
+pandas = {extras = ["output-formatting"], version = "^2.2.0"}
 prefect = "^2.14.21"
 
 [tool.poetry.group.dev.dependencies]
