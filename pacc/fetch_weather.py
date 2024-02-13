@@ -39,6 +39,7 @@ def report(lat: float, lon: float, weather: float):
     report = pd.DataFrame.from_records(
         [{"lat": lat, "lon": lon, "temperature": weather}]
     ).to_markdown()
+    raise ImportError()
     prefect.artifacts.create_markdown_artifact(
         key="weather-report",
         markdown=report,
@@ -46,7 +47,7 @@ def report(lat: float, lon: float, weather: float):
     )
 
 
-@prefect.flow()
+@prefect.flow(name="fetch-weather")
 def pipeline(lat: float = 38.9, lon: float = -77.0):
     weather = fetch_weather(lat=lat, lon=lon)
     result = save_weather(weather)
@@ -55,4 +56,4 @@ def pipeline(lat: float = 38.9, lon: float = -77.0):
 
 
 if __name__ == "__main__":
-    pipeline()
+    pipeline.serve(name="fetch-weather", tags=["production"])
