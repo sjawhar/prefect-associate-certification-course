@@ -5,17 +5,26 @@ services:
       dockerfile: Dockerfile
     image: pacc:dev
     environment:
-      DOCKER_HOST: tcp://docker:2375
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_TLS: 'true'
     volumes:
       - ..:/home/prefect/app:cached
+      - docker-certs-client:/certs/client:ro
     command: [sleep, infinity]
     tty: true
 
   docker:
-    image: docker:25.0.3-dind-rootless
+    image: docker:25.0.3-dind
     privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
     volumes:
-      - docker_data:/var/lib/docker
+      - docker-certs-ca:/certs/ca
+      - docker-certs-client:/certs/client
+      - docker-data:/var/lib/docker
 
 volumes:
-  docker_data: {}
+  docker-data: {}
+  docker-certs-ca: {}
+  docker-certs-client: {}

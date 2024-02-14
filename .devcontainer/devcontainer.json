@@ -2,6 +2,9 @@
   "name": "Docker Compose",
   "dockerComposeFile": "docker-compose.yaml",
   "service": "dev",
+  "runServices": [
+    "docker"
+  ],
   "workspaceFolder": "/home/prefect/app",
   "customizations": {
     "vscode": {
