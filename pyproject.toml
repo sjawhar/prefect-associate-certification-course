@@ -11,6 +11,7 @@ python = "~3.11.8"
 httpx = "^0.26.0"
 pandas = {extras = ["output-formatting"], version = "^2.2.0"}
 prefect = "^2.14.21"
+prefect-docker = "^0.4.4"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.1.1"

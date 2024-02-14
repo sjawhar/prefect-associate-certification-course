@@ -4,7 +4,18 @@ services:
       context: ..
       dockerfile: Dockerfile
     image: pacc:dev
-    tty: true
+    environment:
+      DOCKER_HOST: tcp://docker:2375
     volumes:
       - ..:/home/prefect/app:cached
     command: [sleep, infinity]
+    tty: true
+
+  docker:
+    image: docker:25.0.3-dind-rootless
+    privileged: true
+    volumes:
+      - docker_data:/var/lib/docker
+
+volumes:
+  docker_data: {}

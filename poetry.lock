@@ -1544,6 +1544,24 @@ websockets = ">=10.4,<13.0"
 dev = ["cairosvg", "codespell", "ddtrace", "ipython", "ipython (==8.12.*)", "jinja2", "mike", "mkdocs", "mkdocs-gen-files", "mkdocs-material", "mkdocstrings-python", "mock", "moto (>=5)", "mypy", "numpy", "pillow", "pluggy (>=1.4.0)", "pre-commit", "pytest (>7,<8)", "pytest-asyncio (>=0.18.2,!=0.22.0,<0.23.0)", "pytest-benchmark", "pytest-cov", "pytest-env", "pytest-flakefinder", "pytest-timeout", "pytest-xdist (<3.4.0)", "pytkdocs (>=0.14.2)", "pyyaml", "requests", "respx", "ruff", "setuptools (!=60.9.0)", "virtualenv", "watchfiles"]
 
 [[package]]
+name = "prefect-docker"
+version = "0.4.4"
+description = "Prefect integrations for working with Docker"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "prefect-docker-0.4.4.tar.gz", hash = "sha256:f6295613ca2072044008afdf73c817d1fa47a2a202fcb7c974928e8128b4f219"},
+    {file = "prefect_docker-0.4.4-py3-none-any.whl", hash = "sha256:e6b052203bb52bb008ed979808db345b0e621fcaf6048589ac68dbd345664ff4"},
+]
+
+[package.dependencies]
+docker = ">=6.1.1"
+prefect = ">=2.13.5"
+
+[package.extras]
+dev = ["black", "flake8", "flaky", "interrogate", "isort", "mkdocs", "mkdocs-gen-files", "mkdocs-material", "mkdocstrings[python]", "mock", "mypy", "pillow", "pre-commit", "pytest", "pytest-asyncio", "pytest-cov", "pytest-timeout", "pytest-xdist"]
+
+[[package]]
 name = "pyasn1"
 version = "0.5.1"
 description = "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)"
@@ -2804,4 +2822,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.11.8"
-content-hash = "dd10893e657bcc8125a4d472b61341e6ddf2a29765f01261565121a4a4fbbc79"
+content-hash = "8d2f1cee9414e5f0a383310d59794616ff91ce5eb5861c01d4dd82cddc821a51"

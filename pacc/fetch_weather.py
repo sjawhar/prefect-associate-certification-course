@@ -1,3 +1,4 @@
+import asyncio
 import datetime
 import random
 
@@ -39,7 +40,6 @@ def report(lat: float, lon: float, weather: float):
     report = pd.DataFrame.from_records(
         [{"lat": lat, "lon": lon, "temperature": weather}]
     ).to_markdown()
-    raise ImportError()
     prefect.artifacts.create_markdown_artifact(
         key="weather-report",
         markdown=report,
